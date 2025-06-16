@@ -8,7 +8,7 @@ If you're working with GitHub repositories and want to use advanced diff viewers
 
 ## Why Use Git and JJ Together?
 
-- **GG's built-in diff viewer** can be limiting due to its small window size[#].
+- **GG's built-in diff viewer** can be limiting due to its small window size.
 - By initializing Git first, then JJ, you can easily use any external diff tool (e.g., WinMerge, Meld) for a better comparison experience.
 - This setup is especially useful if you manage your code on GitHub and want seamless integration with popular GUI tools.
 
@@ -85,6 +85,3 @@ https://github.com/zoltantill
 ---
 
 If you have questions or encounter issues, please open an issue in the repository.
-
-
-

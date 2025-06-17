@@ -44,10 +44,9 @@ The script handles four scenarios:
 2. **Only Git exists (`.git` exists, `.jj` does not):**  
    - Initializes JJ alongside Git (colocated mode).
 
-3. **Only JJ exists (`.jj` exists, `.git` does not):**  
-   - Initializes Git.
-   - Configures JJ to use the Git repository as its backend.
-   - Adds `.jj` to `.gitignore` and commits the change.
+3. **Only JJ exists (`.jj` exists, `.git` does not):**
+   - No changes are made.
+   - The script does not initialize Git or modify any files in this case, to avoid risking repository integrity.
 
 4. **Neither exists:**  
    - Initializes both Git and JJ in colocated mode.

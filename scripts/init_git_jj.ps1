@@ -18,9 +18,12 @@ elseif (-not $gitExists -and $jjExists) {
     Write-Output ".jj exists, but .git does not. Initializing Git and configuring JJ to use it."
     git init
     # Set up JJ to use the Git repository as its backend
-    $gitRelativePath = "../../../.git"  # Adjust this path if your structure is different
-    Set-Content -Path .jj\repo\store\git_target -Value $gitRelativePath
-    # Add .jj to .gitignore to avoid tracking JJ's internal files in Git
+   if (-not (Test-Path -Path .jj\repo\store -PathType Container)) {
+        New-Item -Path .jj\repo\store -ItemType Directory -Force
+    }
+    $gitAbsolutePath = (Resolve-Path -Path ".git").Path.Replace("\", "/")
+    Set-Content -Path .jj\repo\store\git_target -Value $gitAbsolutePath
+    
     Add-Content -Path .gitignore -Value "/.jj"
     git add .gitignore
     git commit -m "Add .jj to .gitignore"

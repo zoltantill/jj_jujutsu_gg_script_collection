@@ -24,7 +24,7 @@ This approach ensures that:
  - You gain access to JJ’s unique features and safety net, while maintaining full interoperability with the broader Git ecosystem.
  - This is a widely recommended best practice for users who want the flexibility of JJ alongside the broad compatibility of Git tools.
  
-### convert_to_utf8.ps1 and convert_to_utf8.bat
+### `convert_to_utf8.ps1 and convert_to_utf8.bat`
 
 This PowerShell script quickly converts files with various common text-based extensions (such as .cls, .bas, .md, .txt, .csv, .sql, .rpt, .qry) from ANSI or other legacy encodings to UTF-8 without BOM.
 It is especially useful if you encounter the GG error:
@@ -33,3 +33,20 @@ which typically appears when a file is not properly encoded in UTF-8.
 A batch file is included for easier execution.
 Be sure to make a backup before using this script.
 
+### `auto_commit.bat`
+
+This batch script enables automatic version control for your repository using Jujutsu (JJ) on Windows.  
+It is designed to run at system startup and is ideal for automatically tracking daily changes in an Obsidian repo or any other folder.
+
+The script checks for uncommitted changes and, if any are found, creates a commit with a timestamped message.  
+If there are no changes, but the latest commit lacks a description, it adds one automatically.
+
+This ensures that at least a daily snapshot is always saved, even if you forget to commit manually.  
+You can further customize the script to separate different types of changes, but this provides a simple, reliable baseline for automated version history.
+
+**Why Jujutsu (JJ)?**  
+A key advantage of using JJ is its powerful ability to split and reorganize commits after they are created. With JJ, you can later break up large, automatic commits into smaller, meaningful chunks using commands like `jj split` or `jj squash`.  
+This makes your commit history cleaner and easier to review, and gives you much more flexibility compared to traditional Git workflows.
+
+**Note:**  
+Make sure to review and adapt the script for your workflow. Regular automatic commits help safeguard your notes and edits with minimal effort.

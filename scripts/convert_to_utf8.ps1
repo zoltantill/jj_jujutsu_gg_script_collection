@@ -26,3 +26,4 @@ Get-ChildItem -Path . -Recurse -Include $extensions | ForEach-Object {
     Write-Host "Converted: $($_.FullName)"
 }
 
+# Made by https://github.com/zoltantill

@@ -57,3 +57,5 @@ if "!HAS_CHANGES!"=="1" (
 REM echo.
 REM pause
 endlocal
+
+REM - Made by https://github.com/zoltantill

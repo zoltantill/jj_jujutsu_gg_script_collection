@@ -9,6 +9,7 @@ These scripts are designed for Windows. If you are using a Mac, you may need to 
 
 This repository contains several batch and PowerShell scripts to make working with Jujutsu (JJ) and GG easier on Windows.
 
+
 ### `init_git_jj.ps1`
 
 Initializes both Git and Jujutsu (JJ) version control in the current folder.  
@@ -23,6 +24,7 @@ This approach ensures that:
  - You can collaborate with others using Git without any disruption, as all Git commands and workflows remain available.
  - You gain access to JJ’s unique features and safety net, while maintaining full interoperability with the broader Git ecosystem.
  - This is a widely recommended best practice for users who want the flexibility of JJ alongside the broad compatibility of Git tools.
+
  
 ### `convert_to_utf8.ps1 and convert_to_utf8.bat`
 
@@ -32,6 +34,7 @@ It is especially useful if you encounter the GG error:
 which typically appears when a file is not properly encoded in UTF-8.
 A batch file is included for easier execution.
 Be sure to make a backup before using this script.
+
 
 ### `auto_commit.bat`
 
@@ -51,6 +54,7 @@ This makes your commit history cleaner and easier to review, and gives you much 
 **Note:**  
 Make sure to review and adapt the script for your workflow. Regular automatic commits help safeguard your notes and edits with minimal effort.
 
+
 ### `backup_repo.ps1 and backup_repo.bat`
 
 This PowerShell script automates the backup of specified directories to a target location, organizing each backup in timestamped folders. By default, it backs up the directory where the script is located, but you can specify any number of source directories as arguments. The script supports exclusion of specific subdirectories (such as .git or .jj) and logs all operations to a CSV file for easy tracking.
@@ -67,6 +71,19 @@ Example usage:
 .\backup_repo.ps1 -RepoPaths "C:\Projects", "D:\Notes" -ExcludeDirs "node_modules", ".cache"
 
 This script is designed for quick, reliable, and customizable local backups.
+
+
+### `open_gg.bat` - GG Quick Launcher Batch File
+
+The `open_gg.bat` script provides a convenient way to launch the GG graphical interface for Jujutsu (JJ) directly from your repository.
+
+**How to use:**
+1. Add the folder containing the `gg` executable to your Windows system PATH (if you haven’t already).
+2. Place `open_gg.bat` in the root of your repository (where your `.git` and/or `.jj` directories are).
+3. Double-click `open_gg.bat` to open GG in the context of your current repository.
+
+This makes it easy to manage your version control visually, without needing to open a terminal or navigate directories manually.
+
 
 
 # Made by https://github.com/zoltantill

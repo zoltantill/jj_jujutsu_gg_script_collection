@@ -3,7 +3,12 @@
 I love using [Jujutsu (JJ) VCS](https://github.com/jj-vcs/jj) and its GUI, [GG](https://github.com/gulbanana/gg). 
 To make my workflow more practical, I created a few batch and PowerShell scripts.
 
-These scripts are designed for Windows. If you are using a Mac, you may need to create alternative scripts.
+Jujutsu (JJ) is a modern, Git-compatible version control system designed to simplify and enhance software development workflows. Unlike traditional Git, JJ introduces features such as automatic working-copy commits, flexible commit message editing, and a streamlined model without a staging area, making automation and history rewriting much more straightforward. GG builds on JJ’s composable primitives to offer an interactive graphical interface for managing your repositories, making tasks like rebasing, conflict resolution, and commit editing more intuitive and visual.
+
+This repository provides a collection of scripts to streamline working with JJ and GG on Windows. The scripts help automate common tasks, integrate with external diff and merge tools, and optimize repository management. If you are using a Mac, you may need to create alternative scripts.
+
+Whether you want to automate repository setup, improve commit management, or leverage JJ and GG’s advanced features, this collection is designed to make your version control experience smoother and more productive.
+
 
 ## Scripts
 
@@ -87,3 +92,4 @@ This makes it easy to manage your version control visually, without needing to o
 
 
 # Made by https://github.com/zoltantill
+

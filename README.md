@@ -22,7 +22,7 @@ Initializes both Git and Jujutsu (JJ) version control in the current folder.
 For detailed instructions and tips, see [init_git_jj.md](scripts/init_git_jj.md).
 
 Note:
-Setting up both Git and JJ in this way makes your repository more compatible with other Git tools, external repositories, and advanced diff viewers. This allows you to continue using popular Git-based GUIs, IDE integrations, and diff tools (like WinMerge, Meld, or SourceTree) seamlessly, while also benefiting from JJ’s features and workflow.
+Setting up both Git and JJ in this way makes your repository more compatible with other Git tools, external repositories, and advanced diff viewers. This allows you to continue using popular Git-based GUIs, IDE integrations, and diff tools (like [WinMerge](https://github.com/WinMerge/winmerge), Meld, or SourceTree) seamlessly, while also benefiting from JJ’s features and workflow.
 
 This approach ensures that:
  - Git-based tools (IDEs, build systems, CI/CD pipelines) recognize your repository as a standard Git repo and function normally.
@@ -91,5 +91,5 @@ This makes it easy to manage your version control visually, without needing to o
 
 
 
-# Made by https://github.com/zoltantill
+Made by https://github.com/zoltantill
 

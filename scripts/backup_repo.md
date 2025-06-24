@@ -2,13 +2,14 @@
 
 ## Overview
 
-This script automates the creation of timestamped backups for one or more source directories. By default, it backs up the directory where the script is located, but you can specify any number of source paths as arguments. Each backup is organized in a unique, timestamped subfolder under its source directory name within the backup root. The script supports the exclusion of specific subdirectories and logs all operations to a CSV file for easy tracking.
+This script automates the creation of timestamped backups while preserving original file creation and modification dates. By default, it backs up the directory where the script is located, but supports multiple source directories. Each backup is organized in a unique, timestamped subfolder under its source directory name within the backup root. The script excludes specified subdirectories, logs all operations to CSV, and provides intelligent console management.
 
 ## Features
 
+- **Timestamp Preservation:** Maintains original file creation (`CreationTime`) and modification (`LastWriteTime`) dates in backups
 - **Default source:** The script automatically uses its own directory as the source if no other paths are specified.
 - **Backup structure:**  
-  - Each source directory is backed up to a folder named after its last directory component (e.g., `Projektem`).
+  - Each source directory is backed up to a folder named after its last directory component (e.g., `MyProject`).
   - Inside this folder, backups are stored in subfolders named with the current date and time (e.g., `20240618_203000`).
 - **Exclusion:**  
   - You can exclude specific subdirectories (e.g., `.git`, `.jj`) from the backup.
@@ -51,7 +52,7 @@ To back up specific directories and exclude certain subdirectories:
 
 C:\Backups
 │
-├── Projektem
+├── MyProject
 │ └── 20240618_203000
 │ ├── file1.md
 │ └── file2.ps1
@@ -64,19 +65,26 @@ C:\Backups
 ## Log File Example
 
 Timestamp,RepoPath,BackupPath,Status,Error
-2024-06-18T20:30:00.1234567+02:00,C:\Projects\Projektem,C:\Backups\Projektem\20240618_203000,Success,
+2024-06-18T20:30:00.1234567+02:00,C:\Projects\MyProject,C:\Backups\MyProject\20240618_203000,Success,
 2024-06-18T20:30:02.2345678+02:00,D:\Notes,C:\Backups\Notes\20240618_203000,Success,
 
 
 ## Requirements
 
-- **Windows PowerShell** (or PowerShell Core on Windows)
+- **Windows PowerShell 5.1+** (or PowerShell 7+)
 - **Robocopy** (included with Windows)
 
-## Notes
+## Technical Notes
 
-- **Repo name in backup:** The script uses the last directory name of each source path as the repository name in the backup structure.
-- **Error handling:** The script logs and displays detailed error information if anything goes wrong.
-- **Customization:** You can easily customize the script by modifying the parameters in the command line or directly in the script.
+1. **Timestamp Restoration:**  
+   - Occurs after robocopy completes
+   - Only affects included files
+   - Skips files in excluded directories
+2. **Performance:**  
+   - Large repositories may take longer due to timestamp restoration
+   - ~0.1ms/file overhead (varies by system)
+3. **Repo name in backup:** The script uses the last directory name of each source path as the repository name in the backup structure.
+4. **Error handling:** The script logs and displays detailed error information if anything goes wrong.
+5. **Customization:** You can easily customize the script by modifying the parameters in the command line or directly in the script.
 
-# Made by https://github.com/zoltantill
+Made by https://github.com/zoltantill

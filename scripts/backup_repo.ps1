@@ -1,10 +1,11 @@
 <#
 .SYNOPSIS
-Backs up specified repositories to a target directory with timestamped folders, detailed logging, and console window management.
+Backs up specified repositories to a target directory with timestamped folders, preserves original file creation and modification dates, provides detailed logging, and manages the console window on completion.
 
 .DESCRIPTION
-Creates timestamped backups of multiple repositories. On success, closes the window after 2 seconds. 
-On failure, displays error details and keeps the window open until user interaction.
+Creates timestamped backups of multiple repositories while maintaining original file creation 
+and modification dates. On success, closes the window after 2 seconds; on failure, displays 
+error details and keeps window open.
 
 .PARAMETER RepoPaths
 Array of repository paths to back up (e.g., @("C:\Repo1", "D:\ObsidianVault"))
@@ -109,6 +110,34 @@ foreach ($repo in $RepoPaths) {
         }
 
         $logEntry.Status = "Success"
+		
+        # Restore original timestamps
+        Write-Host "Restoring original timestamps for copied files..."
+
+        $sourceFiles = Get-ChildItem -Path $repo -Recurse -File -Include $Include | Where-Object {
+            $exclude = $false
+            foreach ($ex in $ExcludeDirs) {
+                if ($_.FullName -like "*\$ex\*") { $exclude = $true }
+            }
+            -not $exclude
+        }
+
+        foreach ($srcFile in $sourceFiles) {
+            $relPath = $srcFile.FullName.Substring($repo.Length).TrimStart('\','/')
+            $dstFile = Join-Path $backupDir $relPath
+
+            if (Test-Path $dstFile) {
+                try {
+                    $dstItem = Get-Item $dstFile
+                    # Preserve both timestamps
+                    $dstItem.CreationTime = $srcFile.CreationTime
+                    $dstItem.LastWriteTime = $srcFile.LastWriteTime
+                } catch {
+                    Write-Warning "Failed to set timestamps: $dstFile"
+                }
+            }
+        }
+		
     }
     catch {
         $globalErrorOccurred = $true

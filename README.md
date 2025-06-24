@@ -63,10 +63,12 @@ Make sure to review and adapt the script for your workflow. Regular automatic co
 ### `backup_repo.ps1 and backup_repo.bat`
 
 This PowerShell script automates the backup of specified directories to a target location, organizing each backup in timestamped folders. By default, it backs up the directory where the script is located, but you can specify any number of source directories as arguments. The script supports exclusion of specific subdirectories (such as .git or .jj) and logs all operations to a CSV file for easy tracking.
+Importantly, the script preserves the original creation and modification dates of all backed-up files, ensuring that file metadata remains intact.
 
 Key Features:
  - Default source: The directory containing the script.
  - Backup structure: Each source is backed up to a timestamped folder under its own name in the backup root.
+ - Timestamp preservation: Both original creation (CreationTime) and modification (LastWriteTime) dates are retained in the backup.
  - Exclusion: Optionally exclude subdirectories by name.
  - Logging: Detailed CSV log of backup status and any errors.
  - User feedback: Console output and error handling with clear prompts.
@@ -75,7 +77,7 @@ Example usage:
 .\backup_repo.ps1
 .\backup_repo.ps1 -RepoPaths "C:\Projects", "D:\Notes" -ExcludeDirs "node_modules", ".cache"
 
-This script is designed for quick, reliable, and customizable local backups.
+This script is designed for quick, reliable, and customizable local backups, while maintaining the integrity of file timestamps for accurate archiving and restoration.
 
 
 ### `open_gg.bat` - GG Quick Launcher Batch File

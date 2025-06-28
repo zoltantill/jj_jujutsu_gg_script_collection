@@ -92,6 +92,15 @@ The `open_gg.bat` script provides a convenient way to launch the GG graphical in
 This makes it easy to manage your version control visually, without needing to open a terminal or navigate directories manually.
 
 
+## Guides
+
+### Git and GG Installation Guide (Windows)
+
+This section provides step-by-step instructions for installing Git and GG on Windows.
+By following this guide, you will be able to set up both tools quickly and use them from any directory on your system.
+No prior experience is required—just follow each step, and you’ll be ready to manage your projects efficiently with Git and GG.
+
+
 
 Made by https://github.com/zoltantill
 

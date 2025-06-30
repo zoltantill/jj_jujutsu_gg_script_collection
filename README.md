@@ -101,6 +101,11 @@ By following this guide, you will be able to set up both tools quickly and use t
 No prior experience is required—just follow each step, and you’ll be ready to manage your projects efficiently with Git and GG.
 
 
+### Step-by-Step Guide: Comparing Two Versions in Detail (with WinMerge)
+
+This guide shows how to thoroughly compare the differences between two versions of your project or repository using the Working Copy feature and WinMerge. This method is ideal for reviewing changes across many files and folders, not just individual files.
+
+
 
 Made by https://github.com/zoltantill
 

@@ -52,6 +52,24 @@ If there are no changes, but the latest commit lacks a description, it adds one 
 This ensures that at least a daily snapshot is always saved, even if you forget to commit manually.  
 You can further customize the script to separate different types of changes, but this provides a simple, reliable baseline for automated version history.
 
+### `auto_commit_v2.bat` – Automatic Jujutsu Commit
+
+This script provides **automatic version control** for your repository using **Jujutsu (JJ)** on Windows.  
+It is perfect for automatically tracking changes in an **Obsidian vault** or any project folder.
+
+- Commits **only if there are changes**  
+- Commit message includes **prefix, date/time, and changed files**  
+- Supports **Added (A), Deleted (D), Renamed (R), Changed (C)** files  
+- Switches to **summary mode** if more than `MAX_FILES` are changed  
+- Fully configurable via the BAT file (format, labels, date format, file limit)  
+
+**Example commit messages:**
+```
+[AUTO] | 250804 1115 | (D) ac.bat, (R) hello.txt -> helloGG.txt, (C) jj_auto_commit.ps1
+[AUTO] | 250804 1116 | (A): 3, (D): 1, (R): 2, (C): 5
+250804 1116 | (A) newfile.txt, (C) script.ps1
+```
+
 **Why Jujutsu (JJ)?**  
 A key advantage of using JJ is its powerful ability to split and reorganize commits after they are created. With JJ, you can later break up large, automatic commits into smaller, meaningful chunks using commands like `jj split` or `jj squash`.  
 This makes your commit history cleaner and easier to review, and gives you much more flexibility compared to traditional Git workflows.

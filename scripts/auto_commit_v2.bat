@@ -27,7 +27,7 @@ SET "DATETIME_FORMAT=yyMMdd.HHmm"
 REM ============================================
 
 REM Run the auto-commit script with proper quoting and named parameters
-powershell -ExecutionPolicy Bypass -NoProfile -File "%~dp0jj_auto_commit_v2.ps1" ^
+powershell -ExecutionPolicy Bypass -NoProfile -File "%~dp0auto_commit_v2.ps1" ^
     -FormatPattern "%COMMIT_FORMAT%" ^
     -Prefix "%COMMIT_PREFIX%" ^
     -MaxFilesDetailed %MAX_FILES% ^
